@@ -52,6 +52,10 @@ Default URL:
 
 - `http://localhost:8501`
 
+Deployed URL:
+
+- `https://cvsync-re6i.onrender.com`
+
 ## Functional Flow
 
 1. User uploads a resume PDF and pastes the job description.
