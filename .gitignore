@@ -1,0 +1,15 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+
+# CVSync runtime outputs
+.cvsync_cache/
+reports/
+
+# OS/editor extras
+.DS_Store
+Thumbs.db

@@ -1,0 +1,249 @@
+:root {
+  --bg-main: #f4f7fb;
+  --hero-bg: linear-gradient(135deg, #1a2330 0%, #243246 100%);
+  --panel-bg: #1f2937;
+  --panel-bg-soft: #263243;
+  --panel-border: #3a4a61;
+  --text-light: #ecf2fb;
+  --muted-light: #b7c5d9;
+  --card-bg: #ffffff;
+  --card-border: #d8dee8;
+  --chip-green-bg: #bfe8cf;
+  --chip-green-text: #164d2e;
+  --chip-red-bg: #f5d1d1;
+  --chip-red-text: #7c1d1d;
+  --badge-bg: #c8ead7;
+  --badge-text: #155d3f;
+  --accent-btn: linear-gradient(90deg, #3dc49a 0%, #2ab981 100%);
+}
+
+.stApp {
+  background: radial-gradient(circle at 95% 90%, #eef3ff 0%, #f4f7fb 40%, #f4f7fb 100%);
+}
+
+.main .block-container {
+  max-width: 1200px;
+  padding-top: 1.75rem;
+  padding-bottom: 3rem;
+}
+
+.hero-card {
+  border-radius: 14px;
+  background: var(--hero-bg);
+  border: 1px solid #364a63;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.25);
+  padding: 1.25rem 1rem 1.15rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  color: var(--text-light);
+  margin: 0;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 0.6px;
+}
+
+.hero-tagline {
+  color: var(--muted-light);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.input-shell {
+  border-radius: 14px;
+  background: #1e2936;
+  border: 1px solid #34465d;
+  box-shadow: 0 10px 22px rgba(2, 8, 23, 0.28);
+  padding: 0.6rem 1rem 1.1rem;
+  margin-bottom: 1.35rem;
+}
+
+.input-shell h3,
+.input-shell .stMarkdown p,
+.input-shell label,
+.input-shell .st-emotion-cache-10trblm,
+.input-shell .st-emotion-cache-qrbaxs {
+  color: #dce8f8 !important;
+}
+
+.input-shell .stFileUploader {
+  border: 1px dashed #4f627d !important;
+  border-radius: 12px;
+  background: var(--panel-bg-soft);
+  padding: 0.45rem;
+}
+
+.input-shell .stTextArea textarea {
+  background: #2a374a !important;
+  color: #dce8f8 !important;
+  border: 1px solid #4b5f7a !important;
+}
+
+.input-shell .stToggle {
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.or-divider {
+  position: relative;
+  margin: 0.7rem 0 0.75rem;
+  text-align: center;
+  color: #c5d2e5;
+  font-size: 0.85rem;
+}
+
+.or-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #415670;
+}
+
+.or-divider span {
+  position: relative;
+  background: #1e2936;
+  padding: 0 0.5rem;
+  font-weight: 600;
+}
+
+.stButton > button[kind="primary"] {
+  background: var(--accent-btn);
+  color: #ffffff;
+  border: 1px solid #4dd0a7;
+  border-radius: 9px;
+  font-weight: 700;
+  min-height: 2.7rem;
+}
+
+.stButton > button[kind="secondary"] {
+  border-radius: 9px;
+}
+
+.dashboard-title {
+  color: #0f172a;
+  font-size: 2.15rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.result-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(30, 41, 59, 0.08);
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-heading {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.metric-title {
+  color: #111827;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.metric-value {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.52rem;
+}
+
+.metric-value.positive {
+  color: #15803d;
+}
+
+.pill-badge {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pill-badge.success {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  border-radius: 8px;
+  padding: 0.22rem 0.62rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.chip.green {
+  background: var(--chip-green-bg);
+  color: var(--chip-green-text);
+}
+
+.chip.red {
+  background: var(--chip-red-bg);
+  color: var(--chip-red-text);
+  border: 1px solid #e9a0a0;
+}
+
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.check-list li {
+  margin-bottom: 0.72rem;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.check {
+  color: #1c8d56;
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+
+.enh-row {
+  border-radius: 8px;
+  background: #f2f4f8;
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 0.45rem;
+  color: #111827;
+}
+
+.enh-row b {
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.7rem;
+  }
+}
