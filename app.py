@@ -159,29 +159,19 @@ def _build_payload(
 
 
 def _render_input_panel() -> tuple[bool, bool, AnalysisPayload | None]:
-    st.markdown('<div class="input-shell">', unsafe_allow_html=True)
     st.markdown("### Resume Upload")
     resume_file = st.file_uploader("Resume upload drag & drop", type=["pdf"], key="resume")
 
-    st.markdown('<div class="or-divider"><span>OR</span></div>', unsafe_allow_html=True)
-    upload_jd_instead = st.toggle("Upload JD instead", key="use_jd_upload")
-
-    jd_text = ""
-    jd_file = None
-    if upload_jd_instead:
-        jd_file = st.file_uploader("Upload Job Description (TXT/PDF)", type=["txt", "pdf"], key="jd")
-    else:
-        jd_text = st.text_area(
-            "Job Description",
-            height=170,
-            placeholder="Paste the job description here...",
-            key="jd_text",
-        )
+    jd_text = st.text_area(
+        "Job Description",
+        height=170,
+        placeholder="Paste the job description here...",
+        key="jd_text",
+    )
 
     action_left, action_right = st.columns(2)
     run_clicked = action_left.button("Analyze Resume", type="primary", use_container_width=True)
     retry_clicked = action_right.button("Retry Last Analysis", use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
     if not run_clicked:
         return run_clicked, retry_clicked, None
@@ -189,14 +179,11 @@ def _render_input_panel() -> tuple[bool, bool, AnalysisPayload | None]:
     if not resume_file:
         st.error("Please upload a resume PDF.")
         return run_clicked, retry_clicked, None
-    if upload_jd_instead and not jd_file:
-        st.error("Please upload a job description file.")
-        return run_clicked, retry_clicked, None
-    if not upload_jd_instead and not jd_text.strip():
+    if not jd_text.strip():
         st.error("Please paste or upload a job description.")
         return run_clicked, retry_clicked, None
 
-    payload = _build_payload(resume_file=resume_file, jd_text=jd_text, jd_file=jd_file)
+    payload = _build_payload(resume_file=resume_file, jd_text=jd_text, jd_file=None)
     return run_clicked, retry_clicked, payload
 
 

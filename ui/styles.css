@@ -21,6 +21,16 @@
   background: radial-gradient(circle at 95% 90%, #eef3ff 0%, #f4f7fb 40%, #f4f7fb 100%);
 }
 
+/* Hide Streamlit top chrome so only app content and center loaders remain visible. */
+[data-testid="stDecoration"],
+[data-testid="stToolbar"],
+[data-testid="stDeployButton"],
+[data-testid="stStatusWidget"],
+header[data-testid="stHeader"],
+#MainMenu {
+  display: none !important;
+}
+
 .main .block-container {
   max-width: 1200px;
   padding-top: 1.75rem;
@@ -54,9 +64,9 @@
 
 .input-shell {
   border-radius: 14px;
-  background: #1e2936;
-  border: 1px solid #34465d;
-  box-shadow: 0 10px 22px rgba(2, 8, 23, 0.28);
+  background: #ffffff;
+  border: 1px solid #d8dee8;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
   padding: 0.6rem 1rem 1.1rem;
   margin-bottom: 1.35rem;
 }
@@ -66,20 +76,55 @@
 .input-shell label,
 .input-shell .st-emotion-cache-10trblm,
 .input-shell .st-emotion-cache-qrbaxs {
-  color: #dce8f8 !important;
+  color: #111827 !important;
+}
+
+/* Keep caption text (privacy line) readable on light background. */
+[data-testid="stCaptionContainer"] p {
+  color: #111827 !important;
+}
+
+/* Force form labels (including Job Description) to remain dark and readable. */
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] label,
+.stTextArea label,
+.stTextArea [data-testid="stMarkdownContainer"] p {
+  color: #111827 !important;
 }
 
 .input-shell .stFileUploader {
-  border: 1px dashed #4f627d !important;
+  border: 1px dashed #94a3b8 !important;
   border-radius: 12px;
-  background: var(--panel-bg-soft);
+  background: #f8fafc;
   padding: 0.45rem;
 }
 
+.input-shell .stFileUploader label,
+.input-shell .stFileUploader span,
+.input-shell .stFileUploader small {
+  color: #111827 !important;
+}
+
+/* Ensure selected/uploaded file name is visible on light background. */
+.input-shell [data-testid="stFileUploaderFileName"],
+[data-testid="stFileUploaderFileName"] {
+  color: #111827 !important;
+}
+
 .input-shell .stTextArea textarea {
-  background: #2a374a !important;
-  color: #dce8f8 !important;
-  border: 1px solid #4b5f7a !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Tighten default Streamlit spacing around input widgets. */
+[data-testid="stFileUploader"] {
+  margin-bottom: 0.4rem !important;
+}
+
+[data-testid="stTextArea"] {
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.6rem !important;
 }
 
 .input-shell .stToggle {
@@ -91,7 +136,7 @@
   position: relative;
   margin: 0.7rem 0 0.75rem;
   text-align: center;
-  color: #c5d2e5;
+  color: #334155;
   font-size: 0.85rem;
 }
 
@@ -101,12 +146,12 @@
   top: 50%;
   left: 0;
   right: 0;
-  border-top: 1px solid #415670;
+  border-top: 1px solid #cbd5e1;
 }
 
 .or-divider span {
   position: relative;
-  background: #1e2936;
+  background: #ffffff;
   padding: 0 0.5rem;
   font-weight: 600;
 }
@@ -147,6 +192,20 @@
   color: #0f172a;
   font-weight: 700;
   font-size: 1.05rem;
+}
+
+/* Ensure section headings and auto-added anchor/link icons remain visible on white cards. */
+h3.card-heading,
+h3.card-heading a,
+h3.card-heading [data-testid="stHeaderActionElements"],
+h3.card-heading [data-testid="stHeaderActionElements"] a {
+  color: #111827 !important;
+}
+
+h3.card-heading [data-testid="stHeaderActionElements"] svg,
+h3.card-heading [data-testid="stHeaderActionElements"] svg path,
+h3.card-heading [data-testid="stHeaderActionElements"] svg line {
+  stroke: #111827 !important;
 }
 
 .metric-title {

@@ -1,46 +1,92 @@
 # CVSync
+
 Sync Your Skills. Match Your Future.
 
-CVSync is a fully local resume-to-job analysis app. It ingests a resume and job description, computes a fit score, highlights strengths and skill gaps, and exports a PDF report.
+CVSync is a fully local resume-to-job analysis application. It compares a resume against a job description, computes a match score, highlights strengths and missing skills, provides improvement suggestions, and generates a one-page PDF report.
 
-## Runtime Architecture
+## Key Features
 
-Core modules under `src/cvsync`:
+- Local-first processing (no external AI API calls required)
+- Resume PDF ingestion and JD text input
+- Match score and sub-metrics (skill overlap, semantic similarity, role relevance)
+- Structured strengths, improvements, and missing-skills insights
+- One-click downloadable PDF report
 
-- `ingestion`: Resume/JD parsing and file handling
-- `validation`: Input integrity and language checks
-- `nlp`: Text normalization and skill extraction
-- `matching`: Similarity, overlap, and score breakdown logic
-- `recommendation`: Strength and improvement generation
-- `reporting`: PDF report rendering
-- `session`: Local duplicate-run cache
+## Project Structure
 
-## Execution Flow
+- `app.py`: Streamlit UI entry point
+- `src/cvsync/pipeline.py`: End-to-end orchestration
+- `src/cvsync/ingestion/`: Resume and JD parsing
+- `src/cvsync/validation/`: Input and language validation
+- `src/cvsync/nlp/`: Text preprocessing and skill extraction
+- `src/cvsync/matching/`: Score computation logic
+- `src/cvsync/recommendation/`: Strength/improvement generation
+- `src/cvsync/reporting/`: PDF report generation
+- `src/cvsync/session/`: Local duplicate-run cache
 
-1. Upload resume and JD in `app.py`.
-2. Pipeline parses and validates both documents.
-3. NLP layer extracts skills and must-have indicators.
-4. Matching engine computes weighted score components.
-5. Recommendation layer produces strengths and improvements.
-6. UI renders dashboard and provides PDF export.
-7. Cache prevents duplicate recomputation for identical inputs.
+## Setup and Run Instructions
 
-## Quick Start
+### 1) Create and activate virtual environment
 
-1. Create and activate a Python virtual environment.
-2. Install dependencies.
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\Activate.ps1
+```
+
+### 2) Install dependencies
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-3. Run the Streamlit app.
+### 3) Start the application
 
 ```powershell
 streamlit run app.py
 ```
 
-## Notes
+Default URL:
 
-- The app runs fully local and does not require external AI APIs.
-- Reports are generated to the `reports/` folder during runtime.
+- `http://localhost:8501`
+
+## Functional Flow
+
+1. User uploads a resume PDF and pastes the job description.
+2. Ingestion layer extracts text from files and normalizes sources.
+3. Validation layer checks required content and language quality.
+4. NLP layer preprocesses text and extracts skill signals.
+5. Matching layer computes:
+	- Match score
+	- Skill overlap
+	- Semantic similarity
+	- Role relevance
+6. Recommendation layer builds strengths and prioritized improvements.
+7. UI dashboard renders results in cards and sections.
+8. Reporting layer generates a one-page downloadable PDF.
+9. Session cache avoids duplicate recomputation for identical inputs.
+
+## Demo Screenshots
+
+### Input Form
+
+![Input Form](Demo%20Screenshots/Input_Form.png)
+
+### Web Results Dashboard
+
+![Web Results](Demo%20Screenshots/Web_Results.png)
+
+### Generated PDF Report
+
+![PDF Report](Demo%20Screenshots/PDF_Report.png)
+
+## Output
+
+- Downloaded reports are generated in the `reports/` directory.
+
+## Privacy Note
+
+- CVSync runs locally on your machine.
+- Uploaded files and analysis data are not sent to external services.
